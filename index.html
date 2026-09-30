@@ -32,6 +32,7 @@ nav a:nth-child(1):hover,nav a:nth-child(1).on{background:var(--acc);color:#fff}
 nav a:nth-child(2):hover,nav a:nth-child(2).on{background:var(--acc2);color:#000}
 nav a:nth-child(3):hover,nav a:nth-child(3).on{background:var(--acc3);color:#000}
 nav a:nth-child(4):hover,nav a:nth-child(4).on{background:var(--ink);color:var(--bg)}
+nav a:nth-child(5):hover,nav a:nth-child(5).on{background:var(--acc);color:#fff}
 html.hc nav a.on,html.hc nav a:hover{background:var(--acc)!important;color:#000!important}
 .hw{position:relative;overflow:hidden}
 .blob{position:absolute;border-radius:50%;filter:blur(55px);opacity:.5;z-index:-1;animation:fl 9s ease-in-out infinite alternate}
@@ -135,7 +136,7 @@ html.still *{animation:none!important;transition:none!important;scroll-behavior:
 .fn li:hover{box-shadow:0 0 0 2px var(--c),0 14px 34px color-mix(in srgb,var(--c) 45%,transparent)}
 .pj{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
 .shot{position:relative;overflow:hidden;transition:transform .3s}.card:hover .shot{transform:scale(1.03) rotate(-1deg)}
-.shot[data-ic]::after{content:attr(data-ic);position:absolute;right:10px;bottom:10px;width:58px;height:58px;border-radius:50%;background:var(--acc3);border:2px solid var(--ink);display:grid;place-items:center;font-size:1.8rem;transform:scale(0) rotate(-90deg);transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
+.shot[data-ic]::after{content:attr(data-ic);color:#000;position:absolute;right:10px;bottom:10px;width:58px;height:58px;border-radius:50%;background:var(--acc3);border:2px solid var(--ink);display:grid;place-items:center;font-size:1.8rem;transform:scale(0) rotate(-90deg);transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
 .card:hover .shot[data-ic]::after{transform:none}
 .lang{margin-top:2.5rem;max-width:560px}.lang h3{font-size:1.6rem;margin-bottom:.3rem}.lg2{margin:1rem 0}.lg2>span{display:flex;justify-content:space-between}
 .bar{height:16px;border-radius:99px;background:var(--soft);border:2px solid var(--ink);overflow:hidden;margin-top:.3rem}
@@ -148,7 +149,7 @@ html.still *{animation:none!important;transition:none!important;scroll-behavior:
 .cf input:focus,.cf textarea:focus{outline:3px solid var(--acc);border-color:var(--acc)}
 .go{width:100%;background:var(--acc);color:#fff;font-size:1.1rem;animation:pu 2s infinite}html.hc .go{color:#000}@keyframes pu{50%{box-shadow:0 0 0 10px color-mix(in srgb,var(--acc) 30%,transparent)}}
 .wa{background:#25D366;color:#000;margin:.5rem 0 1rem}
-#cta{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:7000;background:var(--acc2);color:#000;border:3px solid #000;transform:translateY(140px);transition:transform .4s;animation:pu 2s infinite}#cta.show{transform:none}
+#cta{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:7000;background:var(--acc2);color:#000;border:3px solid #000;min-height:48px;display:inline-flex;align-items:center;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s,visibility .3s;animation:pu 2s infinite}#cta.show{opacity:1;visibility:visible;pointer-events:auto}
 @media (max-width:820px){.ct{grid-template-columns:1fr}}
 </style>
 </head>
@@ -159,7 +160,7 @@ html.still *{animation:none!important;transition:none!important;scroll-behavior:
 
 <nav aria-label="Principal">
  <span id="logo" role="img" aria-label="Logo CO">CO</span>
- <div><a href="#practica">Práctica</a><a href="#milanpets">MilánPets</a><a href="#sobre">Sobre mí</a><a href="#contacto">Contacto</a></div>
+ <div><a href="#practica">Práctica</a><a href="#proyectos">Proyectos</a><a href="#milanpets">MilánPets</a><a href="#sobre">Sobre mí</a><a href="#contacto">Contacto</a></div>
 </nav>
 
 <main id="main">
@@ -182,7 +183,7 @@ html.still *{animation:none!important;transition:none!important;scroll-behavior:
 <section id="practica" class="dk"><canvas id="rain" aria-hidden="true"></canvas><div class="wrap">
  <div class="co rv"><div class="lg" data-media="degres" role="img" aria-label="Logo de DEGRES S.A.S.">DEGRES S.A.S.</div><div><h2 style="margin:0">Seis meses de práctica</h2></div></div>
  <p class="rv" data-edit="fechas">Desarrollo web y soporte TI, de marzo a septiembre de 2026.</p>
- <div class="st rv"><div><b data-n="6">6</b>meses de práctica</div><div><b data-n="3">3</b>aplicativos web</div><div><b data-n="3">3</b>pantallas de tienda</div><div><b data-n="2">2</b>idiomas más el español</div></div>
+ <div class="st rv"><div><b data-n="6">6</b>meses de práctica</div><div><b data-n="3">3</b>aplicativos web</div><div><b data-n="3">3</b>pantallas de tienda</div><div><b data-n="2" data-lang-n>2</b>idiomas más el español</div></div>
  <ul class="fn">
   <li class="rv"><h3><span class="ic" aria-hidden="true">📦</span>Inventario TI</h3><p data-edit="j1">Creé un aplicativo web para controlar el inventario de equipos y recursos tecnológicos de la empresa.</p></li>
   <li class="rv"><h3><span class="ic" aria-hidden="true">🏷️</span>Marcación de productos</h3><p data-edit="j2">Desarrollé una herramienta para marcar productos en tienda: se filtran, se seleccionan y se imprime.</p></li>
@@ -214,8 +215,7 @@ html.still *{animation:none!important;transition:none!important;scroll-behavior:
  <h2 class="rv">Sobre mí</h2>
  <p class="rv" style="max-width:60ch;font-size:1.2rem" data-edit="sobre">Combino diseño, desarrollo y contenido multimedia. Trabajo con WordPress, Shopify y consumo de APIs, y aprendo rápido en entornos reales. Hablo español (nativo), portugués e inglés.</p>
  <div class="lang rv"><h3>Idiomas</h3><small>Español: nativo</small>
-  <div class="lg2" role="img" aria-label="Inglés, nivel A2, 60 por ciento"><span><b>Inglés</b><span>Nivel A2 · 60%</span></span><div class="bar"><i style="--p:60%"></i></div></div>
-  <div class="lg2" role="img" aria-label="Portugués, 60 por ciento"><span><b>Portugués</b><span>60%</span></span><div class="bar"><i style="--p:60%"></i></div></div></div>
+  <div id="langs"></div></div>
  <div class="two" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:2rem">
   <div class="ed rv"><h3>Diseño gráfico y UI</h3><ul><li>Adobe Illustrator y Adobe XD</li><li>Lightroom Classic</li><li>Identidad visual básica</li><li>Diseño de interfaces web</li></ul></div>
   <div class="ed rv"><h3>Desarrollo web</h3><ul><li>WordPress y Elementor Pro</li><li>Maquetación de sitios</li><li>Adaptación responsive</li><li>Gestión de contenidos</li></ul></div>
@@ -255,10 +255,12 @@ html.still *{animation:none!important;transition:none!important;scroll-behavior:
 <aside id="panel" aria-label="Panel de administración"></aside>
 
 <script src="config.js"></script>
+<script src="content.js"></script>
 <script>
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const root = document.documentElement, body = document.body;
-root.classList.add('js');
+root.classList.add('js'); addEventListener('error', () => root.classList.remove('js'));
+const DH = '2713673bc6527100e687ee75ef3d068e6fe77aedcf5ce3e5e8f461e5609bc182', _S = typeof CONTENT !== 'undefined' ? CONTENT : typeof SAVED !== 'undefined' ? SAVED : {}, _H = (typeof HASH !== 'undefined' && HASH) || DH, _F = typeof FORM !== 'undefined' ? FORM : { url: '', key: '' };
 function sha(m){const r=(x,n)=>x>>>n|x<<32-n;let p=[],i=2,k=[],h=[];for(;p.length<64;i++)if(p.every(q=>i%q))p.push(i);
 p.forEach((q,j)=>{k[j]=(Math.cbrt(q)%1)*4294967296|0;if(j<8)h[j]=(Math.sqrt(q)%1)*4294967296|0});
 const b=[...unescape(encodeURIComponent(m))].map(c=>c.charCodeAt(0)),l=b.length*8;b.push(128);while(b.length%64!=56)b.push(0);for(i=7;i>=0;i--)b.push(i>3?0:(l>>>i*8)&255);
@@ -267,17 +269,23 @@ let[a,B,c,d,e,f,g,H]=h;for(let t=0;t<64;t++){const t1=H+(r(e,6)^r(e,11)^r(e,25))
 h=[a+h[0],B+h[1],c+h[2],d+h[3],e+h[4],f+h[5],g+h[6],H+h[7]].map(x=>x|0)}
 return h.map(x=>(x>>>0).toString(16).padStart(8,'0')).join('')}
 const ls = { get: k => { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } } };
-const local = ls.get('cfg') || {};
-const mix = k => ({ ...(SAVED[k] || {}), ...(local[k] || {}) });
-let cfg = { colors: mix('colors'), media: mix('media'), text: mix('text'), cursor: local.cursor || SAVED.cursor || 'reticle' };
+const local = (location.search.includes('visitor') ? null : ls.get('cfg')) || {};
+const mix = k => ({ ...(_S[k] || {}), ...(local[k] || {}) });
+const LD = [{ n: 'Inglés', l: 'Nivel A2', p: 30 }, { n: 'Portugués', l: 'Intermedio', p: 60 }];
+let cfg = { colors: mix('colors'), media: mix('media'), text: mix('text'), cursor: local.cursor || _S.cursor || 'reticle', lang: local.lang || _S.lang || LD };
+const padL = () => { cfg.lang = (cfg.lang || LD).map(x => ({ n: x.n || '', l: x.l || '', p: +x.p || 0 })); while (cfg.lang.length < 3) cfg.lang.push({ n: '', l: '', p: 0 }); }; padL();
+const esc = t => String(t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const save = () => { if (!ls.set('cfg', cfg)) alert('No hay espacio. Usa rutas como media/archivo.jpg en vez de subir archivos grandes.'); };
 function apply() {
   Object.entries(cfg.colors).forEach(([k, v]) => root.style.setProperty('--' + k, v));
-  Object.entries(cfg.media).forEach(([k, v]) => { if (!v) return; $$(`[data-media=${k}]`).forEach(el => {
-    if (el.tagName === 'IMG') el.src = v; else if (el.tagName === 'VIDEO') { el.src = v; el.parentElement.classList.add('has'); } else { el.style.backgroundImage = `url("${v}")`; el.classList.add('has'); } }); });
+  Object.entries(cfg.media).forEach(([k, v]) => { if (!v) return; const u = v.startsWith('data:') ? v : v.replace(/ /g, '%20'); $$(`[data-media=${k}]`).forEach(el => {
+    if (el.tagName === 'IMG') el.src = u; else if (el.tagName === 'VIDEO') { el.src = u; el.parentElement.classList.add('has'); } else { el.style.backgroundImage = `url("${u}")`; el.classList.add('has'); } }); });
   Object.entries(cfg.text).forEach(([k, v]) => { const el = $(`[data-edit=${k}]`); if (el && v) el.textContent = v; });
   body.dataset.cursor = cfg.cursor;
   const vs = $('#video'); if (vs) vs.hidden = !cfg.media.reel;
+  const L = cfg.lang.filter(x => x.n.trim()), pc = x => Math.max(0, Math.min(100, +x.p || 0));
+  $('#langs').innerHTML = L.map(x => `<div class="lg2" role="img" aria-label="${esc(x.n)}, ${esc(x.l)}, ${pc(x)} por ciento"><span><b>${esc(x.n)}</b><span>${x.l ? esc(x.l) + ' · ' : ''}${pc(x)}%</span></span><div class="bar"><i style="--p:${pc(x)}%"></i></div></div>`).join('');
+  const sn = $('[data-lang-n]'); if (sn) { sn.dataset.n = L.length; sn.textContent = L.length; }
 }
 apply();
 
@@ -300,8 +308,10 @@ code.style.color = 'transparent';
 addEventListener('scroll', () => { $('#bar').style.width = scrollY / (root.scrollHeight - innerHeight) * 100 + '%'; }, { passive: true });
 const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; e.target.classList.add('in'); $$('[data-n]', e.target).forEach(n => { const to = +n.dataset.n; let v = 0; const t = setInterval(() => { n.textContent = ++v; if (v >= to) clearInterval(t); }, 150); }); io.unobserve(e.target); }), { threshold: .15 });
 $$('.rv').forEach(x => io.observe(x));
-const io2 = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) $$('nav a').forEach(a => a.classList.toggle('on', a.hash === '#' + e.target.id)); }), { rootMargin: '-45% 0px -50% 0px' });
-$$('section[id],footer[id]').forEach(s => io2.observe(s));
+const NT = ['practica', 'proyectos', 'milanpets', 'sobre', 'contacto'].map(id => $('#' + id)), NA = $$('nav a'), nd = $('nav div');
+function act() { let i = -1; NT.forEach((t, j) => { if (t.getBoundingClientRect().top <= innerHeight * .4) i = j; }); if (innerHeight + scrollY >= root.scrollHeight - 6) i = NT.length - 1;
+  NA.forEach((a, j) => { const on = j === i; if (on && !a.classList.contains('on')) nd.scrollTo({ left: a.offsetLeft - nd.clientWidth / 2 + a.offsetWidth / 2, behavior: 'smooth' }); a.classList.toggle('on', on); }); }
+addEventListener('scroll', act, { passive: true }); addEventListener('resize', act); act();
 
 // Cursor visor de cámara (sin retraso perceptible)
 const cur = $('#cur'); let mx = -99, my = -99, cx = -99, cy = -99;
@@ -335,16 +345,35 @@ const lab = el => { const t = el.closest('a,button,img,h1,h2,h3,li,p,figcaption,
 addEventListener('click', e => say(lab(e.target)), true); addEventListener('focusin', e => say(lab(e.target)));
 
 // Panel de administración
-const panel = $('#panel'); let authed = false;
+const panel = $('#panel'); let authed = false, pendingHash = ls.get('ph') || '', G = ls.get('gh') || { repo: '', br: 'main' }, TOK = '';
 const closeP = () => { panel.classList.remove('on'); body.classList.remove('adm'); };
 function openPanel() { panel.classList.add('on'); body.classList.add('adm'); authed ? adminUI() : loginUI(); }
 function loginUI() {
   panel.innerHTML = `<form id="lf" autocomplete="off"><h4>Acceso privado</h4><small>Escribe tu código para editar la página.</small><input type="password" id="pw" placeholder="Código" autocomplete="off"><button class="btn" type="submit">Entrar</button><button class="btn" type="button" id="x">Cerrar</button><small id="err" role="alert"></small></form>`;
-  $('#lf').addEventListener('submit', e => { e.preventDefault(); if (sha($('#pw').value) === HASH) { authed = true; adminUI(); } else $('#err').textContent = 'Código incorrecto.'; });
+  $('#lf').addEventListener('submit', e => { e.preventDefault(); if (sha($('#pw').value) === (pendingHash || _H)) { authed = true; adminUI(); } else $('#err').textContent = 'Código incorrecto.'; });
   $('#x').addEventListener('click', closeP); setTimeout(() => $('#pw').focus(), 50);
 }
 const shrink = f => new Promise(res => { if (!f.type.startsWith('image/')) { const r = new FileReader(); r.onload = () => res(r.result); r.readAsDataURL(f); return; }
   const img = new Image(); img.onload = () => { const k = Math.min(1, 1400 / Math.max(img.width, img.height)), c = document.createElement('canvas'); c.width = img.width * k; c.height = img.height * k; c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL('image/jpeg', .82)); }; img.src = URL.createObjectURL(f); });
+const b64 = t => btoa(unescape(encodeURIComponent(t)));
+async function publish() {
+  const s = $('#ps'), say2 = t => s.textContent = t;
+  G = { repo: $('#gr').value.trim(), br: $('#gb').value.trim() || 'main' }; TOK = $('#gt').value.trim();
+  if (!/^[\w.-]+\/[\w.-]+$/.test(G.repo) || !TOK) { say2('Escribe usuario/repositorio y tu token.'); return; }
+  ls.set('gh', G);
+  const api = (p, o = {}) => fetch(`https://api.github.com/repos/${G.repo}/contents/${encodeURI(p)}` + (o.method ? '' : `?ref=${G.br}`), { ...o, headers: { Authorization: 'Bearer ' + TOK, Accept: 'application/vnd.github+json' } });
+  const put = async (p, content, msg) => { let sha; const g = await api(p); if (g.ok) sha = (await g.json()).sha; else if (g.status !== 404) throw g.status;
+    const r = await api(p, { method: 'PUT', body: JSON.stringify({ message: msg, content, branch: G.br, sha }) }); if (!r.ok) throw r.status; };
+  try {
+    const out = JSON.parse(JSON.stringify(cfg));
+    for (const [k, v] of Object.entries(out.media)) if (typeof v === 'string' && v.startsWith('data:')) { const ext = v.startsWith('data:video') ? 'mp4' : v.startsWith('data:image/png') ? 'png' : 'jpg', p = `media/${k}-${Date.now()}.${ext}`; say2('Subiendo ' + p + '...'); await put(p, v.split(',')[1], 'Subir ' + p); out.media[k] = p; }
+    say2('Guardando contenido...');
+    await put('content.js', b64('// Generado desde el panel de administración.\nconst CONTENT = ' + JSON.stringify(out, null, 1) + ';\n'), 'Actualizar contenido desde el panel');
+    if (pendingHash) { await put('config.js', b64("// Configuración.\nconst HASH = '" + pendingHash + "';\nconst FORM = " + JSON.stringify(_F) + ";\n"), 'Actualizar código del panel'); pendingHash = ''; ls.set('ph', ''); }
+    cfg = out; save(); say2('¡Publicado! En 1 o 2 minutos se ve en la página. Después pulsa Restablecer para limpiar el borrador.');
+  } catch (e) { say2(e === 401 || e === 403 ? 'GitHub rechazó el token. Debe tener permiso Contents: Read and write en este repositorio.' : e === 404 ? 'No encontré el repositorio o la rama. Revisa usuario/repositorio.' : 'No se pudo publicar. Intenta de nuevo.'); }
+  TOK = ''; $('#gt').value = '';
+}
 function adminUI() {
   const cv = k => { const v = getComputedStyle(root).getPropertyValue('--' + k).trim(); return /^#[0-9a-f]{6}$/i.test(v) ? v : '#000000'; };
   const col = (k, n) => `<label>${n}<input type="color" data-c="${k}" value="${cv(k)}"></label>`;
@@ -352,9 +381,14 @@ function adminUI() {
   panel.innerHTML = `<h4>Colores</h4>${col('bg', 'Fondo')}${col('ink', 'Texto')}${col('acc', 'Azul')}${col('acc2', 'Rosa')}${col('acc3', 'Amarillo')}${col('dk', 'Secciones oscuras')}
   <h4>Cursor</h4><select id="cu"><option value="reticle">Visor de cámara</option><option value="off">Normal</option></select>
   <h4>Imágenes y video</h4>${med('foto', 'Tu foto')}${med('degres', 'Logo de DEGRES')}${med('p1', 'Aplicativo inventario')}${med('p2', 'Aplicativo marcación')}${med('p3', 'Aplicativo 3')}${med('reel', 'Video')}
+  <h4>Idiomas</h4><small>El español es nativo. Deja el idioma vacío para ocultar la fila.</small>${[0, 1, 2].map(i => `<div style="display:grid;grid-template-columns:1.1fr 1.1fr .7fr;gap:.3rem;margin:.3rem 0"><input type="text" data-l="${i}.n" placeholder="Idioma" value="${esc(cfg.lang[i].n)}"><input type="text" data-l="${i}.l" placeholder="Nivel" value="${esc(cfg.lang[i].l)}"><input type="text" inputmode="numeric" data-l="${i}.p" placeholder="%" value="${cfg.lang[i].p}"></div>`).join('')}
   <h4>Textos</h4><button class="btn" id="ed">${body.dataset.editing ? 'Terminar edición' : 'Editar textos en la página'}</button>
-  <h4>Publicar</h4><small>Tus cambios solo los ves tú. Para publicarlos: Exportar, pega el resultado en <b>const SAVED</b> del archivo y súbelo a GitHub.</small>
-  <button class="btn" id="ex">Exportar</button><button class="btn" id="im">Importar</button><button class="btn" id="rs">Restablecer</button><textarea id="io" rows="4" placeholder="JSON"></textarea>
+  <h4>Guardar</h4><small>Todo lo que cambias se guarda solo como borrador en este navegador: únicamente tú lo ves.</small>
+  <a class="btn" href="?visitor=1" target="_blank" rel="noopener">Ver como visitante</a>
+  <h4>Publicar en GitHub</h4><small>Sube tu borrador al repositorio. Vercel actualiza la página en 1 o 2 minutos. El token no se guarda.</small>
+  <input type="text" id="gr" placeholder="usuario/repositorio" value="${esc(G.repo)}"><input type="text" id="gb" placeholder="rama" value="${esc(G.br)}"><input type="password" id="gt" placeholder="Token de GitHub" autocomplete="off">
+  <button class="btn" id="pub">Publicar cambios</button><small id="ps" role="status"></small>
+  <h4>Avanzado</h4><button class="btn" id="ex">Exportar</button><button class="btn" id="im">Importar</button><button class="btn" id="rs">Restablecer</button><textarea id="io" rows="4" placeholder="JSON"></textarea>
   <h4>Cambiar código</h4><input type="password" id="np" placeholder="Nuevo código"><button class="btn" id="nh">Generar</button><small id="hs"></small><button class="btn" id="x">Cerrar</button>`;
   $('#cu').value = cfg.cursor; $('#cu').onchange = e => { cfg.cursor = e.target.value; apply(); save(); };
   $$('[data-c]').forEach(i => i.addEventListener('input', () => { cfg.colors[i.dataset.c] = i.value; apply(); save(); }));
@@ -362,9 +396,11 @@ function adminUI() {
   $$('[data-f]').forEach(i => i.addEventListener('change', async () => { const f = i.files[0]; if (!f) return; cfg.media[i.dataset.f] = await shrink(f); apply(); save(); adminUI(); }));
   $('#ed').addEventListener('click', () => { const on = !body.dataset.editing; body.dataset.editing = on ? '1' : ''; $$('[data-edit]').forEach(el => { el.contentEditable = on; el.addEventListener('input', () => { cfg.text[el.dataset.edit] = el.innerText; save(); }); }); adminUI(); });
   $('#ex').addEventListener('click', () => { $('#io').value = JSON.stringify(cfg); $('#io').select(); try { navigator.clipboard.writeText($('#io').value); } catch (e) {} });
-  $('#im').addEventListener('click', () => { try { const j = JSON.parse($('#io').value); cfg = { colors: j.colors || {}, media: j.media || {}, text: j.text || {}, cursor: j.cursor || 'reticle' }; save(); apply(); adminUI(); } catch (e) { alert('El JSON no es válido.'); } });
+  $('#im').addEventListener('click', () => { try { const j = JSON.parse($('#io').value); cfg = { colors: j.colors || {}, media: j.media || {}, text: j.text || {}, cursor: j.cursor || 'reticle', lang: j.lang || LD }; padL(); save(); apply(); adminUI(); } catch (e) { alert('El JSON no es válido.'); } });
   $('#rs').addEventListener('click', () => { if (confirm('¿Borrar los cambios de este navegador?')) { try { localStorage.removeItem('cfg'); } catch (e) {} location.reload(); } });
-  $('#nh').addEventListener('click', () => { $('#hs').textContent = 'Pega este valor en const HASH: ' + sha($('#np').value); });
+  $('#nh').addEventListener('click', () => { if (!$('#np').value) return; pendingHash = sha($('#np').value); ls.set('ph', pendingHash); $('#hs').textContent = 'Código nuevo listo. Se guarda al pulsar Publicar cambios.'; });
+  $$('[data-l]').forEach(i => i.addEventListener('input', () => { const [k, f] = i.dataset.l.split('.'); cfg.lang[k][f] = f === 'p' ? +i.value || 0 : i.value; apply(); save(); }));
+  $('#pub').addEventListener('click', publish);
   $('#x').addEventListener('click', closeP);
 }
 addEventListener('keydown', e => { if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'e') { e.preventDefault(); openPanel(); } });
@@ -386,7 +422,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape') { $('#a11y').classLis
 // Llamado a la acción
 const W = ['un sitio web', 'una tienda en Shopify', 'un aplicativo a tu medida', 'contenido para tus redes']; let wi = 0;
 setInterval(() => { if (root.classList.contains('still')) return; const r = $('#rot'); r.style.opacity = 0; setTimeout(() => { r.textContent = W[++wi % W.length]; r.style.opacity = 1; }, 300); }, 2600);
-const cta = $('#cta'); addEventListener('scroll', () => cta.classList.toggle('show', scrollY > 500 && $('#contacto').getBoundingClientRect().top > innerHeight * .6), { passive: true });
+const cta = $('#cta'), ctaf = () => cta.classList.toggle('show', scrollY > 400 && $('#contacto').getBoundingClientRect().top > innerHeight * .7); addEventListener('scroll', ctaf, { passive: true }); addEventListener('resize', ctaf); ctaf();
 $('#cf').addEventListener('submit', async e => { e.preventDefault(); const f = e.target, d = Object.fromEntries(new FormData(f)), s = $('#cs'); if (d.botcheck) return;
   if (!d.name.trim() || !/^\S+@\S+\.\S+$/.test(d.email) || d.message.trim().length < 5) { s.textContent = 'Revisa tu nombre, tu correo y escribe tu mensaje.'; return; }
   if (!FORM.url) { location.href = 'mailto:karlosaaa.m@gmail.com?subject=' + encodeURIComponent('Contacto desde tu portafolio: ' + d.name) + '&body=' + encodeURIComponent(d.message + '\n\n' + d.name + ' - ' + d.email); s.textContent = 'Se abrió tu correo para enviar el mensaje.'; return; }
