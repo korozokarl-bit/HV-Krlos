@@ -290,8 +290,8 @@ function apply() {
 apply();
 
 // Galería de MilánPets + ampliación
-const G = [['boceto','Boceto de baja fidelidad: inicio, ficha de producto y versión móvil'],['media','Prototipo de mediana fidelidad con la cuadrícula del diseño'],['alta','Prototipo de alta fidelidad de la página de inicio'],['branding','Guía de marca: logo, paleta, tipografías, iconos y cuadrículas'],['wordpress','Desarrollo en WordPress: catálogo de productos y plantillas de Elementor'],['final1','Resultado: página de inicio'],['final2','Resultado: tienda con catálogo'],['final3','Resultado: ficha de producto con carrito']];
-$('#gal').innerHTML = G.map(([f, t]) => `<figure><img src="media/${f}.jpg" alt="${t}" data-zoom loading="lazy"><figcaption>${t}</figcaption></figure>`).join('');
+const GAL = [['boceto','Boceto de baja fidelidad: inicio, ficha de producto y versión móvil'],['media','Prototipo de mediana fidelidad con la cuadrícula del diseño'],['alta','Prototipo de alta fidelidad de la página de inicio'],['branding','Guía de marca: logo, paleta, tipografías, iconos y cuadrículas'],['wordpress','Desarrollo en WordPress: catálogo de productos y plantillas de Elementor'],['final1','Resultado: página de inicio'],['final2','Resultado: tienda con catálogo'],['final3','Resultado: ficha de producto con carrito']];
+$('#gal').innerHTML = GAL.map(([f, t]) => `<figure><img src="media/${f}.jpg" alt="${t}" data-zoom loading="lazy"><figcaption>${t}</figcaption></figure>`).join('');
 const lb = $('#lb');
 document.addEventListener('click', e => { if (e.target.matches('[data-zoom]')) { $('img', lb).src = e.target.src; $('img', lb).alt = e.target.alt; lb.classList.add('on'); } else if (lb.classList.contains('on')) lb.classList.remove('on'); });
 addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('on'); });
