@@ -1,10 +1,11 @@
-// Contenido publicado. Se actualiza solo desde el panel.
+// Generado desde el panel de administración.
 const CONTENT = {
  "colors": {},
  "media": {
   "p2": "media/App Etiquetas.png",
   "p3": "media/Transferencias.png",
-  "reel": "media/Programando.mp4"
+  "reel": "media/Programando.mp4",
+  "degres": "media/Inventario TI.png"
  },
  "text": {
   "t3": "Aplicativo Web Transferencias Bancarias",
@@ -21,6 +22,11 @@ const CONTENT = {
    "n": "Portugués",
    "l": "Intermedio",
    "p": 60
+  },
+  {
+   "n": "",
+   "l": "",
+   "p": 0
   }
  ]
 };
