@@ -5,7 +5,8 @@ const CONTENT = {
   "p2": "media/App Etiquetas.png",
   "p3": "media/Transferencias.png",
   "reel": "media/Programando.mp4",
-  "degres": "media/Inventario TI.png"
+  "degres": "media/Logodegres.PNG",
+  "p1": "media/Inventario TI.png"
  },
  "text": {
   "t3": "Aplicativo Web Transferencias Bancarias",
